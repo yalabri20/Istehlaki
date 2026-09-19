@@ -1,16 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f1ea;
+  --background: #f2efe6;
   --foreground: #1c1917;
   --card: #ffffff;
-  --primary: #115e59;
+  --primary: #0f5e57;
+  --primary-deep: #0c3f3b;
   --gold: #c4a35a;
+  --gold-soft: #e7d6ac;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
   --font-sans: var(--font-cairo), "Segoe UI", Tahoma, Arial, sans-serif;
 }
 
@@ -26,6 +30,34 @@ body {
 body {
   background: var(--background);
   color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Numeric readouts stay aligned and even */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: -0.01em;
+}
+
+/* Hairline + soft depth used across premium cards */
+.card-elevate {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 1px 2px rgba(28, 25, 23, 0.04),
+    0 16px 40px -20px rgba(28, 25, 23, 0.24);
+}
+
+.gold-rule {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold) 20%,
+    var(--gold) 80%,
+    transparent
+  );
 }
 
 input[type="range"] {
@@ -40,22 +72,27 @@ input[type="range"]::-webkit-slider-thumb {
   width: 22px;
   height: 22px;
   border-radius: 999px;
-  background: #115e59;
+  background: #0f5e57;
   border: 3px solid #fff;
-  box-shadow: 0 4px 10px rgba(17, 94, 89, 0.28);
+  box-shadow: 0 4px 12px rgba(15, 94, 87, 0.32);
   cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  transform: scale(1.12);
 }
 
 input[type="range"]::-moz-range-thumb {
   width: 22px;
   height: 22px;
   border-radius: 999px;
-  background: #115e59;
+  background: #0f5e57;
   border: 3px solid #fff;
-  box-shadow: 0 4px 10px rgba(17, 94, 89, 0.28);
+  box-shadow: 0 4px 12px rgba(15, 94, 87, 0.32);
   cursor: pointer;
 }
 
 ::selection {
-  background: rgba(17, 94, 89, 0.18);
+  background: rgba(15, 94, 87, 0.18);
 }

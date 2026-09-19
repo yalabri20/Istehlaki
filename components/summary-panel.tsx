@@ -96,18 +96,26 @@ export function SummaryPanel() {
   return (
     <div className="space-y-3">
       <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        <Card className="bg-teal-900 text-white shadow-[0_16px_40px_rgba(19,78,74,0.28)]">
-          <CardContent className="flex h-full flex-col justify-between p-5">
-            <div className="flex items-center gap-2 text-teal-100">
-              <Wallet className="h-4 w-4" />
-              <span className="text-xs font-bold tracking-wide">
-                {t("electricity")}
-              </span>
+        <Card className="relative overflow-hidden border-transparent bg-gradient-to-br from-teal-700 via-teal-800 to-teal-950 text-white shadow-[0_24px_50px_-20px_rgba(12,63,59,0.9)]">
+          <div className="pointer-events-none absolute -right-8 -top-10 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+          <CardContent className="relative flex h-full flex-col justify-between p-5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-teal-100">
+                <span className="grid h-7 w-7 place-items-center rounded-lg bg-white/10 ring-1 ring-inset ring-white/15">
+                  <Wallet className="h-4 w-4" />
+                </span>
+                <span className="text-xs font-bold tracking-wide">
+                  {t("electricity")}
+                </span>
+              </div>
             </div>
-            <p className="mt-4 text-3xl font-black">
+            <p className="tnum mt-5 text-[2rem] font-black leading-none">
               {formatSar(electricity.total, locale)}
             </p>
-            <p className="mt-1 text-xs text-teal-100/80">{t("vatIncluded")}</p>
+            <p className="mt-2 text-xs font-medium text-teal-100/80">
+              {t("vatIncluded")}
+            </p>
           </CardContent>
         </Card>
 
@@ -168,7 +176,7 @@ export function SummaryPanel() {
                 <p className="mt-2 text-sm font-semibold text-stone-800">
                   {t(SEASON_LABEL[selectedBlock.season])}
                 </p>
-                <p className="mt-1 text-2xl font-black text-stone-900">
+                <p className="tnum mt-1 text-2xl font-black text-stone-900">
                   {formatKwh(selectedBlock.monthlyKwh, locale)}
                 </p>
                 <p className="text-sm text-stone-600">
@@ -204,7 +212,7 @@ export function SummaryPanel() {
         <Card>
           <CardContent className="p-5">
             <p className="text-xs font-bold text-stone-500">{t("annualEst")}</p>
-            <p className="mt-3 text-2xl font-black text-stone-900">
+            <p className="tnum mt-3 text-2xl font-black text-stone-900">
               {formatSar(projection.annualTotal, locale)}
             </p>
             <p className="mt-2 text-xs leading-relaxed text-stone-500">
