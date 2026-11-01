@@ -2,7 +2,7 @@
 
 Arabic-first web app for residential SEC electricity tariffs, mixed-capacity AC savings, and a seasonal annual projection.
 
-Live repo: [github.com/yalabri20/Istehlaki](https://github.com/yalabri20/Istehlaki)
+Live Link: (https://istehlaki.vercel.app/)
 
 ## Stack
 
