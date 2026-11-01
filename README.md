@@ -17,7 +17,6 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001).
 
 Type kWh from the paper bill. No PDF or photo upload.
 
